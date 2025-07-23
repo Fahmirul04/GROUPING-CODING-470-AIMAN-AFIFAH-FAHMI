@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Help | WWF Malaysia</title>
+  
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    /* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px 40px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-wwf-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+    .hero {
+  text-align: center;
+  padding: 80px 20px 40px; /* top space to push it down */
+  font-family: Arial, sans-serif;
+      color: #ffffff;
+  background-color: #003b36; /* optional background */
+}
+    .hero-content {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #009688;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #00796b;
+    }
+
+    .cta-buttons {
+      margin-top: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .help-section {
+      padding: 60px 20px;
+      background: #f4f9fb;
+      text-align: center;
+    }
+
+    .help-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #003b36;
+    }
+
+    .infographic-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin-top: 30px;
+    }
+    .info-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-left: 5px solid #009688;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .eco-section {
+      background: #e6f5f3;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .eco-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .eco-tip {
+      background: white;
+      border-left: 5px solid #4caf50;
+      padding: 20px;
+      max-width: 300px;
+      text-align: left;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      background: #003b36;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    footer .socials a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+    footer .socials a:hover {
+      text-decoration: underline;
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: left;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .popup-content input[type="text"],
+    .popup-content input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .checkbox-group label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .submit-btn {
+      background-color: #00bfa6;
+      color: white;
+      padding: 12px 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #008f7a;
+    }
+
+    /* Page Header Styles */
+.page-header {
+  background-color: #003b36;
+  color: white;
+  padding: 100px 20px 60px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+  <div class="nav-left">
+    <img src="https://cdnassets.panda.org/_skins/pandaorg3/img/logo.png" alt="WWF Logo" class="nav-wwf-logo" />
+    <div class="logo">WWF Malaysia</div>
+  </div>
+  <ul class="nav-links">
+      <li><a href="index1.html">Home</a></li>
+      <li><a href="index2.html">About</a></li>
+      <li><a href="index3.html">How to Help</a></li>
+      <li><a href="index4.html">Media</a></li>
+  </ul>
+</nav>
+
+  <!-- Hero Section -->
+  <header class="page-header">
+  <h1>How You Can Help</h1>
+  <p>Empower yourself to protect marine life. Every action counts — from your wallet to your voice.</p>
+</header>
+
+  <!-- Help Section -->
+  <section class="help-section">
+    <div class="container">
+      <h2>5 Impactful Ways to Support</h2>
+      <div class="infographic-grid">
+        <div class="info-card">
+          <h3>💚 Donate</h3>
+          <p>Your contribution supports conservation programs, marine patrols, and community education.</p>
+        </div>
+        <div class="info-card">
+          <h3>🙋‍♀️ Volunteer</h3>
+          <p>Join our hands-on projects like turtle monitoring, beach cleanups, and marine education.</p>
+        </div>
+        <div class="info-card">
+          <h3>🧹 Attend Cleanups</h3>
+          <p>Participate in local cleanup events to reduce plastic pollution on beaches and reefs.</p>
+        </div>
+        <div class="info-card">
+          <h3>🐢 Adopt a Marine Animal</h3>
+          <p>Symbolically adopt a turtle or dugong — help fund rescue, rehabilitation, and habitat protection.</p>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="cta-buttons">
+        <a href="#" class="cta-button" onclick="openForm()">Donate Now</a>
+        <a href="#" class="cta-button" onclick="openForm()">Join a Cleanup</a>
+        <a href="#" class="cta-button" onclick="openForm()">Adopt a Turtle</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eco Tips Section -->
+  <section class="eco-section">
+    <div class="container">
+      <h2>🌍 Everyday Eco Tips</h2>
+      <div class="eco-grid">
+        <div class="eco-tip">
+          <h3>🚫 Reduce Plastic</h3>
+          <p>Bring reusable bags, bottles & containers. Avoid single-use plastics.</p>
+        </div>
+        <div class="eco-tip">
+          <h3>🐟 Sustainable Seafood</h3>
+          <p>Choose seafood certified by MSC or ASC to avoid overfished species.</p>
+        </div>
+        <div class="eco-tip">
+          <h3>♻️ Recycle Properly</h3>
+          <p>Sort waste, rinse containers, and follow your city’s recycling guide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup Form -->
+  <div id="formModal" class="popup">
+    <div class="popup-content">
+      <h2>🌊 Join the Save the Ocean Movement</h2>
+      <p>Be part of the change. Together, we can protect Malaysia’s marine life.</p>
+      <form id="joinForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" required />
+
+        <label for="location">Location (City/State):</label>
+        <input type="text" id="location" />
+
+        <label>I want to:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" value="donate" /> Donate</label>
+          <label><input type="checkbox" value="cleanup" /> Join a cleanup</label>
+          <label><input type="checkbox" value="volunteer" /> Volunteer</label>
+          <label><input type="checkbox" value="adopt" /> Adopt a marine animal</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Join the Movement</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Popup -->
+  <div id="successPopup" class="popup">
+    <div class="popup-content" style="text-align: center;">
+      <h3>🎉 Congratulations!</h3>
+      <p>You have joined the movement!</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+  <p>&copy; 2025 IML 470 Group Assignment &ndash; WWF Malaysia</p>
+  <p style="font-size: 0.9rem; margin-top: 5px;">This project is part of the CDIM260 course by students of UiTM.</p>
+</footer>
+
+  <!-- JavaScript -->
+  <script>
+    function openForm() {
+      document.getElementById("formModal").style.display = "flex";
+    }
+
+    document.getElementById("joinForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("formModal").style.display = "none";
+      document.getElementById("successPopup").style.display = "flex";
+      setTimeout(() => {
+        document.getElementById("successPopup").style.display = "none";
+      }, 3000);
+    });
+
+    window.addEventListener("click", function (e) {
+      const formModal = document.getElementById("formModal");
+      if (e.target === formModal) {
+        formModal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

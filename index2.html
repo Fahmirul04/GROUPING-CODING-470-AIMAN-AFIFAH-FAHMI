@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About the Campaign | Save Our Sea</title>
+
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #b2e3f9, #e0f4fb, #f4f9fb);
+      color: #003b36;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 40px;
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-wwf-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    section.about-campaign-section {
+      background: linear-gradient(to bottom, #e0f4fb, #f4f9fb);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about-campaign-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #003b36;
+    }
+
+    /* Progress Bar */
+    .progress-bar {
+      background: #ccc;
+      width: 100%;
+      height: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .progress {
+      background: #00bfa6;
+      width: 65%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    /* Accordion Container */
+    .accordion {
+      max-width: 900px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .accordion-item {
+      margin-bottom: 15px;
+      border: 1px solid #00bfa6;
+      border-radius: 10px;
+      background-color: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .accordion input[type="checkbox"] {
+      display: none;
+    }
+
+    .accordion label {
+      display: block;
+      padding: 20px 24px;
+      background-color: #00bfa6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion label:hover {
+      background-color: #008f7a;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background-color: #e6f7f5;
+      padding: 0 24px;
+    }
+
+    .accordion input:checked ~ .accordion-content {
+      max-height: 1000px;
+      padding: 20px 24px;
+    }
+
+    .accordion-content h3 {
+      margin-bottom: 10px;
+      color: #003b36;
+      font-size: 1.3rem;
+    }
+
+    .accordion-content p,
+    .accordion-content ul {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .accordion-content ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    /* Video Container */
+    .video-container {
+      position: relative;
+      padding-bottom: 42.55%; 
+      height: 0;
+      overflow: hidden;
+      max-width: 900px; 
+      margin: 0 auto 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: url('https://images.unsplash.com/photo-1612615806125-4079ac0962ae?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center center / cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      position: relative;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3); 
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .accordion label {
+        font-size: 1rem;
+        padding: 15px 18px;
+      }
+
+      .accordion-content {
+        padding: 15px 18px;
+      }
+
+      .about-campaign-section {
+        padding: 40px 15px;
+      }
+
+      .video-container {
+        margin-bottom: 30px;
+      }
+
+      .hero-banner h1 {
+        font-size: 2.5rem;
+      }
+    }
+    
+    /* Footer */
+    footer {
+      background: #003b36;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="https://cdnassets.panda.org/_skins/pandaorg3/img/logo.png" alt="WWF Logo" class="nav-wwf-logo" />
+      <div class="logo">WWF Malaysia</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index1.html">Home</a></li>
+      <li><a href="index2.html">About</a></li>
+      <li><a href="index3.html">How to Help</a></li>
+      <li><a href="index4.html">Media</a></li>
+    </ul>
+  </nav>
+  <section class="hero-banner" style="margin-top:80px;">
+    <h1>Save Our Sea</h1>
+  </section>
+
+  <section class="about-campaign-section">
+    <h2>About the Campaign</h2>
+
+    <!-- Campaign Video -->
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/LKrJ-GO4itk" 
+        title="Importance of Marine Conservation"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Progress Bar and Goal (now under the video) -->
+    <div class="progress-bar">
+      <div class="progress" style="width: 65%;"></div>
+    </div>
+    <p>Goal: Clean 100 beaches — 65 completed!</p>
+
+    <div class="accordion">
+
+      <!-- WHAT -->
+      <div class="accordion-item">
+        <input type="checkbox" id="what">
+        <label for="what">🌊 OBJECTIVE (WHAT)</label>
+        <div class="accordion-content">
+          <h3>Save Our Sea (S.O.S) Campaign</h3>
+          <p>A nationwide effort by WWF Malaysia focused on protecting marine biodiversity. The campaign includes:</p>
+          <ul>
+            <li>Reducing ocean pollution (plastic, ghost nets)</li>
+            <li>Promoting sustainable fishing practices</li>
+            <li>Safeguarding endangered species (turtles, dugongs, corals)</li>
+            <li>Empowering coastal communities through education</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WHEN -->
+      <div class="accordion-item">
+        <input type="checkbox" id="when">
+        <label for="when">📅 TIMELINE (WHEN)</label>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Campaign Period:</strong> Oct 1 – Dec 31</li>
+            <li><strong>Peak Week:</strong> Nov 4–10 (World Tsunami Awareness)</li>
+            <li><strong>Year-Round:</strong> Educational and environmental activities with schools and communities</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WHO -->
+      <div class="accordion-item">
+        <input type="checkbox" id="who">
+        <label for="who">👥 STAKEHOLDERS (WHO)</label>
+        <div class="accordion-content">
+          <p><strong>Organizer:</strong> WWF Malaysia</p>
+          <p><strong>Target Groups:</strong></p>
+          <ul>
+            <li>Students & youth</li>
+            <li>Coastal communities & fishers</li>
+            <li>General public</li>
+            <li>Government, NGOs, corporations</li>
+            <li>Environmental ambassadors & local influencers</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WHERE -->
+      <div class="accordion-item">
+        <input type="checkbox" id="where">
+        <label for="where">📍 LOCATIONS (WHERE)</label>
+        <div class="accordion-content">
+          <ul>
+            <li><strong>Core Regions:</strong> Sabah, Sarawak, Terengganu, Johor, Penang</li>
+            <li><strong>Nationwide:</strong> Social media & school campaigns</li>
+            <li><strong>On-Ground:</strong> Beach clean-ups, coral planting, mobile exhibitions</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WHY -->
+      <div class="accordion-item">
+        <input type="checkbox" id="why">
+        <label for="why">❓ IMPORTANCE (WHY)</label>
+        <div class="accordion-content">
+          <p>Malaysia is a marine biodiversity hotspot. However, it faces serious threats:</p>
+          <ul>
+            <li>8 million tons of plastic enter oceans annually</li>
+            <li>Species such as turtles, reef fish, and corals are endangered</li>
+            <li>Overfishing damages fish stocks and marine habitats</li>
+          </ul>
+          <p><strong>Protecting the sea protects our food, culture, and future.</strong></p>
+        </div>
+      </div>
+
+      <!-- HOW -->
+      <div class="accordion-item">
+        <input type="checkbox" id="how">
+        <label for="how">🔧 IMPLEMENTATION (HOW)</label>
+        <div class="accordion-content">
+          <h3>Digital Campaign</h3>
+          <ul>
+            <li>Hashtag: <strong>#SaveOurSeaMY</strong></li>
+            <li>Videos, reels, infographics</li>
+            <li>Youth video contest</li>
+            <li>Virtual marine tours</li>
+          </ul>
+
+          <h3>On-Ground</h3>
+          <ul>
+            <li>Beach cleanups & reef restoration</li>
+            <li>“Adopt-a-Turtle” program</li>
+            <li>Sustainable seafood workshops</li>
+            <li>Marine exhibition truck</li>
+          </ul>
+
+          <h3>Education & Fundraising</h3>
+          <ul>
+            <li>School conservation kits</li>
+            <li>Talks by marine experts</li>
+            <li>Plastic-Free Office challenge</li>
+            <li>Merch & donation drives</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+  <p>&copy; 2025 IML 470 Group Assignment &ndash; WWF Malaysia</p>
+  <p style="font-size: 0.9rem; margin-top: 5px;">This project is part of the CDIM260 course by students of UiTM.</p>
+</footer>
+
+</body>
+</html>
